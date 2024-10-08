@@ -5,14 +5,21 @@ const completeList = document.querySelector("ul")
 let listItems = []
 
 function newTask(){
+
+    //Verificação de campo em branco
+    if(input.value.trim() === ''){
+        alert('Insira uma tarefa.');
+        return; //sai da função sem adicionar tarefa
+    }
+
     listItems.push({
-        task:input.value,
+        task:input.value.trim(),
         check: false,
     })
 
-    input.value = ''
+    input.value = ''//Limpa o campo input
 
-    showTasks()
+    showTasks()//Atualiza lista
 }
 
 
@@ -20,19 +27,18 @@ function showTasks(){
     let newList = ''
 
     listItems.forEach((item, position) => {
-        newList = 
-            newList + 
+        newList += 
             `
                 <li>
                     ${item.task}
                     <span onClick='deleteTask(${position})'> 🗑️ </span>
                 </li>
-            `
+            `;
     })
 
     completeList.innerHTML = newList
 
-    localStorage.setItem('List', JSON.stringify(listItems))
+    localStorage.setItem('List', JSON.stringify(listItems))//Armazena no LocalStorage
 }
 
 function checkTask(position){
@@ -42,7 +48,7 @@ function checkTask(position){
 }
 
 function deleteTask(position){
-    listItems.splice(position, 1)
+    listItems.splice(position, 1)//Remove tarefa selecionada
 
     showTasks()
 }
@@ -51,12 +57,13 @@ function reloadTasks(){
     const localStorageTask = localStorage.getItem('List')
 
     if(localStorageTask){
-        listItems = JSON.parse(localStorageTask)
+        listItems = JSON.parse(localStorageTask)//Carrega tarefas salvas
     }
 
     showTasks()
 }
 
+//verificação de tecla "Enter"
 input.addEventListener("keyup", (e) =>{
     if(e.code === "Enter"){
         const inputTask = e.target.value
