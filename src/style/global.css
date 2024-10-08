@@ -101,18 +101,23 @@ span{
         text-align: center;
     }
 
+    .Add_task{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1rem 0;
+    }
+
     input{
         margin: 1px;
     }
 
     button{
-        width: 10%;
         font-size: 1rem;
         font-weight: bold;
         border: none;
         border-radius: 100%;
     }
-
     li{
         width: 90%;
     }
