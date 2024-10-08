@@ -17,7 +17,7 @@ body{
 
     background-color: var(--bg-color);
     margin: 2rem;
-    max-width: 800px;
+    max-width: 90vh;
     margin: 1rem auto;
     font-family: sans-serif;
 
@@ -80,4 +80,45 @@ li{
 
 span{
     cursor: pointer;
+}
+
+@media(max-width: 834px){
+
+    body{
+        max-width: 35vh;
+    }
+
+    h1{
+        font-size: 2.8rem;
+    }
+
+    button{
+        width: 12%;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    
+    button:hover{
+        background-color: #575656;
+    }
+}
+
+@media(max-width: 1024px){
+
+    body{
+        max-width: 75vh;
+    }
+
+    h1{
+        font-size: 3rem;
+    }
+
+    button{
+        width: 15%;
+        font-size: 1.2rem;
+    }
+    
+    button:hover{
+        background-color: #575656;
+    }
 }

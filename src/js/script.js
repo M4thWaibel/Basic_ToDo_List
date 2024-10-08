@@ -67,4 +67,15 @@ input.addEventListener("keyup", (e) =>{
 
 reloadTasks()
 
+function updateButtonText(){
+    if(window.innerWidth <= 834){
+        btn.textContent = "+";
+    }else{
+        btn.textContent = "Adicionar";
+    }
+}
+
+updateButtonText();
+window.addEventListener('resize', updateButtonText);
+
 
