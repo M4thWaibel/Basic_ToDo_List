@@ -48,7 +48,7 @@ function deleteTask(position){
 }
 
 function reloadTasks(){
-    const localStorageTask = localStorage.getItem('list')
+    const localStorageTask = localStorage.getItem('List')
 
     if(localStorageTask){
         listItems = JSON.parse(localStorageTask)
@@ -61,7 +61,7 @@ input.addEventListener("keyup", (e) =>{
     if(e.code === "Enter"){
         const inputTask = e.target.value
 
-        newTask(inputTask)
+        newTask();
     }
 })
 
