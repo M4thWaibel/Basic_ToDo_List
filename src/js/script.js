@@ -1,8 +1,8 @@
-const btn = document.querySelector("button")
-const input = document.querySelector("input")
-const completeList = document.querySelector("ul")
+const btn_Add = document.querySelector(".Add");
+const input = document.querySelector("input");
+const completeList = document.querySelector("ul");
 
-let listItems = []
+let listItems = [];
 
 function newTask(){
 
@@ -17,14 +17,13 @@ function newTask(){
         check: false,
     })
 
-    input.value = ''//Limpa o campo input
+    input.value = '';//Limpa o campo input
 
-    showTasks()//Atualiza lista
+    showTasks();//Atualiza lista
 }
 
-
 function showTasks(){
-    let newList = ''
+    let newList = '';
 
     listItems.forEach((item, position) => {
         newList += 
@@ -34,39 +33,39 @@ function showTasks(){
                     <span onClick='deleteTask(${position})'> 🗑️ </span>
                 </li>
             `;
-    })
+    });
 
-    completeList.innerHTML = newList
+    completeList.innerHTML = newList;
 
-    localStorage.setItem('List', JSON.stringify(listItems))//Armazena no LocalStorage
+    localStorage.setItem('List', JSON.stringify(listItems));//Armazena no LocalStorage
 }
 
 function checkTask(position){
-    listItems[position].check = !listItems[position].check
+    listItems[position].check = !listItems[position].check;
 
-    showTasks()
+    showTasks();
 }
 
 function deleteTask(position){
-    listItems.splice(position, 1)//Remove tarefa selecionada
+    listItems.splice(position, 1);//Remove tarefa selecionada
 
-    showTasks()
+    showTasks();
 }
 
 function reloadTasks(){
-    const localStorageTask = localStorage.getItem('List')
+    const localStorageTask = localStorage.getItem('List');
 
     if(localStorageTask){
-        listItems = JSON.parse(localStorageTask)//Carrega tarefas salvas
+        listItems = JSON.parse(localStorageTask);//Carrega tarefas salvas
     }
 
-    showTasks()
+    showTasks();
 }
 
 //verificação de tecla "Enter"
 input.addEventListener("keyup", (e) =>{
     if(e.code === "Enter"){
-        const inputTask = e.target.value
+        const inputTask = e.target.value;
 
         newTask();
     }
@@ -76,13 +75,11 @@ reloadTasks()
 
 function updateButtonText(){
     if(window.innerWidth <= 834){
-        btn.textContent = "+";
+        btn_Add.textContent = "+";
     }else{
-        btn.textContent = "Adicionar";
+        btn_Add.textContent = "Adicionar";
     }
 }
 
 updateButtonText();
 window.addEventListener('resize', updateButtonText);
-
-

@@ -9,32 +9,76 @@
     <title>To Do</title>
     <link rel="icon" href="src/img/check.png" type="image/png">
     <link rel="stylesheet" href="src/style/global.css">
+    <!--FONT-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <!--ICON-->
+    <script src="https://kit.fontawesome.com/6f3103b13c.js" crossorigin="anonymous"></script>
+    
 
 </head>
 
 <body>
 
-    <h1 class="tittle">Minha Lista de Tarefas</h1>
+    <header>
 
-    <section class="Add_task">
+        <h1 class="tittle">Minha Lista de Tarefas</h1>
 
-        <input type="text" placeholder="Insira a Tarefa">
-        <button onclick= newTask()>Adicionar</button>
+    </header>
+
+    <main>
+
+        <section class="Add_task">
+
+            <input type="text" placeholder="Insira a Tarefa">
+            <button onclick= newTask() class="Add">Adicionar</button>
+            <button id="PomodoroShow">Pomodoro</button>
+
+        </section>
+
+        <section class="pomodoroTimer"> <!-- Aparece só quando clicar no botão Pomodoro -->
+
+            <div class="timer">
+                <div class="time">
+                    <p id="minutes"></p>
+                    <p>:</p>
+                    <p id="seconds"></p>
+                </div>
+
+                <div class="controls">
+
+                    <button id="start" onclick="start()">
+                        <i class="fa-solid fa-play"></i>
+                    </button>
     
-    </section>
+                    <button id="reset" onclick="reset()">
+                        <i class="fa-solid fa-arrow-rotate-left"></i>
+                    </button>
+                </div>
+            </div>
 
-    <section>
+           
 
-        <ul class="task_list">
+        </section>
+        
+        <section class="tasks">
+        
+            <ul class="task_list">
+        
+            </ul>
+        
+        </section>
 
-        </ul>
+    </main>
 
-    </section>
+    
 
 <script src="src/js/script.js"></script>
+<script src="src/js/pomodoro.js"></script>
+
 <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
+
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 
