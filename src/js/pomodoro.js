@@ -38,6 +38,10 @@ function start(){
 
         seconds -= 1;
 
+        if(seconds <=9){
+            document.getElementById('seconds').innerHTML = "0" + seconds;
+        }
+
         if(seconds === 0 ){
             workMinutes -= 1;
             if(workMinutes === -1){
